@@ -19,7 +19,7 @@ public class FenceViewModel extends AndroidViewModel {
         fenceRepository = new FenceRepository(application);
     }
 
-    public List<Fence> gelAllFences() {
+    public LiveData<List<Fence>> gelAllFences() {
         return fenceRepository.getFences();
     }
 

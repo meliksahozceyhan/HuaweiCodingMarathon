@@ -24,5 +24,5 @@ public interface FenceDao {
     public void update(Fence fence);
 
     @Query("SELECT * FROM fences")
-    public List<Fence>  getAll();
+    public LiveData<List<Fence>>  getAll();
 }

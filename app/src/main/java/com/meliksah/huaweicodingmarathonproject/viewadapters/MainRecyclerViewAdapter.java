@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.meliksah.huaweicodingmarathonproject.R;
 import com.meliksah.huaweicodingmarathonproject.model.Fence;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainRecyclerViewAdapter extends RecyclerView.Adapter<MainRecyclerViewAdapter.MyViewHolder> {
@@ -22,7 +23,7 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<MainRecyclerVi
 
     public MainRecyclerViewAdapter(Context context, List<Fence> fences){
         this.context = context;
-        this.fenceList = fences;
+        this.fenceList = fences == null ? new ArrayList<Fence>() : fences;
     }
 
     @NonNull

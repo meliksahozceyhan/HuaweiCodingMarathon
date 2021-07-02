@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void initRecyclerView(){
-        MainRecyclerViewAdapter mainRecyclerViewAdapter = new MainRecyclerViewAdapter(this,fenceViewModel.gelAllFences());
+        MainRecyclerViewAdapter mainRecyclerViewAdapter = new MainRecyclerViewAdapter(this,fenceViewModel.gelAllFences().getValue());
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         mainRecyclerView.setLayoutManager(layoutManager);
         mainRecyclerView.setAdapter(mainRecyclerViewAdapter);

@@ -21,6 +21,9 @@ public class FenceRepository {
 
     public void insert(Fence fence){
         fence.setCreatedAt(new Date());
+        FenceRoomDatabase.databaseWriteExecutor.execute(() ->{
+            fenceDao.insertFence(fence);
+        });
         fenceDao.insertFence(fence);
     }
 
@@ -28,7 +31,7 @@ public class FenceRepository {
         fenceDao.delete(fence);
     }
 
-    public List<Fence> getFences(){
+    public LiveData<List<Fence>> getFences(){
         return fenceDao.getAll();
     }
 

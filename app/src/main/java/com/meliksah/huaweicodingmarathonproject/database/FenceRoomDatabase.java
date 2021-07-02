@@ -17,7 +17,7 @@ public abstract class FenceRoomDatabase extends RoomDatabase {
     public abstract FenceDao fenceDao();
     private static volatile FenceRoomDatabase INSTANCE;
     private static final int NUMBER_OF_THREADS = 4;
-    static final ExecutorService databaseWriteExecutor = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
+    public static final ExecutorService databaseWriteExecutor = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
     public static FenceRoomDatabase getDatabase(final Context context){
         if(INSTANCE == null){
