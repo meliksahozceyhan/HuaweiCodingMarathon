@@ -13,14 +13,16 @@ import java.util.List;
 
 public class FenceViewModel extends AndroidViewModel {
     private final FenceRepository fenceRepository;
+    private LiveData<List<Fence>> fenceList;
 
     public FenceViewModel(@NonNull Application application) {
         super(application);
         fenceRepository = new FenceRepository(application);
+        fenceList = fenceRepository.getFences();
     }
 
-    public LiveData<List<Fence>> gelAllFences() {
-        return fenceRepository.getFences();
+    public LiveData<List<Fence>> getFences() {
+        return fenceList;
     }
 
     public void insertFence(Fence fence){

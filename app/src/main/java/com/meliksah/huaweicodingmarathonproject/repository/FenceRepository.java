@@ -10,21 +10,24 @@ import com.meliksah.huaweicodingmarathonproject.model.Fence;
 
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 public class FenceRepository {
     private FenceDao fenceDao;
+    private LiveData<List<Fence>> fenceList;
 
     public FenceRepository(Application app){
         FenceRoomDatabase db = FenceRoomDatabase.getDatabase(app);
         fenceDao = db.fenceDao();
+        fenceList = fenceDao.getAll();
     }
 
     public void insert(Fence fence){
         fence.setCreatedAt(new Date());
+        fence.setId(UUID.randomUUID().toString());
         FenceRoomDatabase.databaseWriteExecutor.execute(() ->{
             fenceDao.insertFence(fence);
         });
-        fenceDao.insertFence(fence);
     }
 
     public void delete(Fence fence){
@@ -32,7 +35,7 @@ public class FenceRepository {
     }
 
     public LiveData<List<Fence>> getFences(){
-        return fenceDao.getAll();
+        return fenceList;
     }
 
 }

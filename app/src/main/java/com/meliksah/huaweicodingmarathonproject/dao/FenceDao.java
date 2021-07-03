@@ -23,6 +23,6 @@ public interface FenceDao {
     @Update
     public void update(Fence fence);
 
-    @Query("SELECT * FROM fences")
+    @Query("SELECT * FROM fences ORDER BY created_at DESC")
     public LiveData<List<Fence>>  getAll();
 }

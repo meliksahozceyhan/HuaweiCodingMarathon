@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">HuaweiCodingMarathonProject</string>
+    <string name="radioButtonLbl">Select The GeoFence Type</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="setCurrentLocation">Set Notification From Current Location</string>
+    <string name="selectFromMap">Set Notification from Map</string>
 </resources>
