@@ -7,7 +7,8 @@
     * Uygulamanın amacı kullanıcının isteği doğrultusunda coğrafi çitler oluşturarak bunları cihazın local database'inde saklamak ve kullanıcı tekrar o noktaya geri girdiğinde bu coğrafi çitin tetiklenerek kullanıcıya bildirim göndermesini sağlamak.
     * Günlük hayatta çözdüğü sorun ise eğer çok unutkan birisiyseniz size mekanlarla ile ilgili hatırlatıcı eklemenizde yardımcı olacaktır. Mesela Şehirler arası otobüs terminaline gittiğimde para çek, ya da bu tarafatan bir daha geçersem şuraya uğramayı unutma gibi bildirimleri zamanı ve yeri gelince hatırlatacaktır.
 ## Projeyi indirmek
-  Sağ üst köşede bulunan clone yazısının altından isterseniz git clone ile ya da isterseniz zip dosyasını indirerek projeyi indirebilirsiniz
+  * Sağ üst köşede bulunan clone yazısının altından isterseniz git clone ile ya da isterseniz zip dosyasını indirerek projeyi indirebilirsiniz
+  * Cihaza yükleme yapmak isterseniz app klasörü altında bulunan release klasöründe bir apk mevcuttur.
 ## Projeyi Çalıştırmak
   Projeyi çalıştırmadan önce proje içinden bulunan bir kütüphadenen ötürü Android Studioya eklemeniz gereken bir plugin mevcuttur eğer bu plugin'i indirmezseniz compile error alma ihtimaliniz oldukça yüksektir bu yüzden Android studio için *Lombok* pluginini indirmeniz gerekir. Lombok Pluginini Android Studio Plugin marketplacete bulabilirsiniz.
 ## Yararlanılan kütüphaneler
