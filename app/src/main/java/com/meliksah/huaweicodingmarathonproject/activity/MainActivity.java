@@ -136,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChanged(List<Fence> fences) {
                 fenceList = fences;
+                refreshList();
             }
 
         });
@@ -154,14 +155,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void initGeoFences(){
-        fenceList.forEach(fence -> {
-            geofenceList.add(new Geofence.Builder().setUniqueId(fence.getId())
-                    .setValidContinueTime(0)
-                    .setRoundArea(fence.getLatitude(),fence.getLongitude(),Float.parseFloat(fence.getRadius().toString()))
-                    .setConversions(fence.getFenceType().equalsIgnoreCase("ENTER") ? Geofence.ENTER_GEOFENCE_CONVERSION : Geofence.EXIT_GEOFENCE_CONVERSION)
-                    .build());
-            idList.add(fence.getId());
-        });
+        if(fenceList != null){
+            fenceList.forEach(fence -> {
+                geofenceList.add(new Geofence.Builder().setUniqueId(fence.getId())
+                        .setValidContinueTime(0)
+                        .setRoundArea(fence.getLatitude(),fence.getLongitude(),Float.parseFloat(fence.getRadius().toString()))
+                        .setConversions(fence.getFenceType().equalsIgnoreCase("ENTER") ? Geofence.ENTER_GEOFENCE_CONVERSION : Geofence.EXIT_GEOFENCE_CONVERSION)
+                        .build());
+                idList.add(fence.getId());
+            });
+        }
     }
     private GeofenceRequest getAddGeofenceRequest() {
         GeofenceRequest.Builder builder = new GeofenceRequest.Builder();
@@ -278,8 +281,8 @@ public class MainActivity extends AppCompatActivity {
                 b.putString("fenceName",fenceName);
                 b.putString("fenceNote",fenceNote);
                 b.putString("fenceType",fenceType);
-                b.putDouble("lat",location.getLatitude());
-                b.putDouble("lng",location.getLongitude());
+                b.putDouble("lat",location != null ? location.getLatitude() : 44.0);
+                b.putDouble("lng",location != null ? location.getLongitude(): 44.0);
                 serviceIntent.putExtras(b);
                 startService(serviceIntent);
                 nameAndNoteDialog.dismiss();

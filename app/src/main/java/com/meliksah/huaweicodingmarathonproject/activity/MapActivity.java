@@ -48,7 +48,6 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         mapView = findViewById(R.id.mapView);
         saveButton = findViewById(R.id.saveButton);
         cancelButton = findViewById(R.id.cancelButton);
-        initListeners();
 
         Bundle mapViewBundle = null;
 
@@ -59,6 +58,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         mapView.onCreate(mapViewBundle);
         mapView.getMapAsync(this);
 
+        initListeners();
 
     }
 
@@ -74,13 +74,6 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             @Override
             public void onClick(View v) {
                 finish();
-            }
-        });
-
-        huaweiMap.setOnMapClickListener(new HuaweiMap.OnMapClickListener() {
-            @Override
-            public void onMapClick(LatLng latLng) {
-                addMarker(latLng);
             }
         });
 
@@ -104,6 +97,14 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         getDeviceLocation();
 
         huaweiMap = huaweiMap;
+
+        huaweiMap.setOnMapClickListener(new HuaweiMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(LatLng latLng) {
+                addMarker(latLng);
+            }
+        });
+
     }
 
     private void updateLocationUI() {
